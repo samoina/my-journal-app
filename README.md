@@ -27,6 +27,16 @@ I intend to start with a static UI before I can get around to adding the dynamic
 
 Create a form or interface for users to input and save their journal entries. This would also provide the option of adding an image to go with the journal entry. I will then implement the logic to handle saving the entries - using local storage initially and then a backend API.
 
+#### My Approach
+
+In the 'Refactoring UI' book, the authors opine that when starting from scratch, it is best to start with a feature - not a layout. thinking of the app at the onset can be overwhelming, since as it were, the app as it were, is a collection oof many features. to do this, I needed to start with a piece of actual functionality.
+
+Since I am building a journal web app, my interface will need:
+
+- A field for the actual journal entry
+- A submit button
+- an interface that displays the journal entry
+
 ### Display the journal entries
 
 Build a feature to display saved journal entries and images (if any) in a user-friendly format. Use React components to render each entry.
