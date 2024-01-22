@@ -37,6 +37,10 @@ Since I am building a journal web app, my interface will need:
 - A submit button
 - an interface that displays the journal entry
 
+Once I had this in place, the next step was to get the value from the text area and display it on the 'Journal Posted' section. The only tricky thing that I found was that my textarea was controlled using state variable, but within the Child component, and NOT on the parent component where the button to be clicked is. So I need to 'lift the state up' and pass down props from the parent to the child component.
+
+Once this is done, I need to pass the journal entry from the textarea to the 'Journal entry' child component.
+
 ### Display the journal entries
 
 Build a feature to display saved journal entries and images (if any) in a user-friendly format. Use React components to render each entry.
