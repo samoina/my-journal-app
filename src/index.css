@@ -1,3 +1,13 @@
+body {
+	/* @apply bg-red-700; */
+	background-color: yellow;
+	border: 2px solid black;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
