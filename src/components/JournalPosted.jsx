@@ -2,8 +2,7 @@
 const JournalPosted = ({ journalPosted }) => {
 	return (
 		<>
-			
-			<p>{journalPosted}</p>
+			<li>{journalPosted}</li>
 		</>
 	);
 };

@@ -4,8 +4,6 @@ const JournalEntry = ({ content, handleChange }) => {
 		<>
 			{' '}
 			<textarea
-				name=""
-				id=""
 				cols="30"
 				rows="10"
 				placeholder="Jot down your pun-tastic musings here! 📝😄"

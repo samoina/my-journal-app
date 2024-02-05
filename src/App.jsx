@@ -1,19 +1,19 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import JournalEntry from './components/JournalEntry';
 import JournalPosted from './components/JournalPosted';
 
 function App() {
-	//create two setter functions, one that sends the prop to the text area, and another that, when the button is clicked, sets the content in the div section for the journal entries
 	const [journalContent, setJournalContent] = useState('');
-	const [contentToPost, setContentToPost] = useState('');
+
 	//create an array to store the journal entries which i will loop over in the entry section
 	const [journalArray, setJournalArray] = useState([]);
 
-	//When the button is clicked, set the content for the div, i wanted to do it asynchronously instead of setting the content from the textarea directly to the `JournalEntry` child component
+	//When the button is clicked, create a new object, that contains the journal content and adds the uuid, then set it to the new array and clear the text input area
 	const handleClick = () => {
-		setContentToPost(journalContent);
-		console.log(journalContent);
-		setJournalArray((prevArray) => [...prevArray, journalContent]);
+		const newJournalEntry = { journalContent, uuid: uuidv4() };
+		setJournalArray((prevArray) => [...prevArray, newJournalEntry]);
+		setJournalContent('');
 	};
 
 	//this is to be passed as a prop to the journal entry
@@ -32,11 +32,18 @@ function App() {
 			>
 				Post Entry
 			</button>
-			<h1>Journal Entry submitted</h1>
-			{/* But doing it this way overwrites previous entries, so i might need an array that i can loop over */}
-			{journalArray.map((journalToPost, index) => (
-				<JournalPosted key={index} journalPosted={journalToPost} />
-			))}
+			<h1>Here is your journal entry</h1>
+			{/* {journalArray.map((journalArr) => {
+				return (
+					<JournalPosted
+						journalPosted={journalArr.journalContent}
+						key={journalArr.uuid}
+					/>
+				);
+			})} */}
+			{journalArray.map(({ journalContent, uuid }) => {
+				return <JournalPosted journalPosted={journalContent} key={uuid} />;
+			})}
 		</>
 	);
 }
