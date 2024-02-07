@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-const JournalPosted = ({ journalPosted }) => {
+const JournalPosted = ({ journalPosted, handleDelete }) => {
 	return (
 		<>
-			<li>{journalPosted}</li>
+			<li onClick={handleDelete}>{journalPosted}</li>
 		</>
 	);
 };
