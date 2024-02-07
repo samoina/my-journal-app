@@ -23,15 +23,19 @@ function App() {
 
 	//When the button is clicked, create a new object, withjournal content, adds the uuid, set to the new array and clear text input area
 	const handleClick = () => {
-		const newJournalEntry = { journalContent, uuid: uuidv4() };
+		if (journalContent === '') {
+			alert('Try and type something in the text area to post a  journal 😄');
+		} else {
+			const newJournalEntry = { journalContent, uuid: uuidv4() };
 
-		const newAddedArray = [...journalArray, newJournalEntry];
-		setJournalArray(newAddedArray);
+			const newAddedArray = [...journalArray, newJournalEntry];
+			setJournalArray(newAddedArray);
 
-		//set to LS
-		const json = JSON.stringify(newAddedArray);
-		localStorage.setItem('journalEntries', json);
-		setJournalContent('');
+			//set to LS
+			const json = JSON.stringify(newAddedArray);
+			localStorage.setItem('journalEntries', json);
+			setJournalContent('');
+		}
 	};
 
 	//this is to be passed as a prop to the journal entry
